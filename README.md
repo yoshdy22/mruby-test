@@ -1,15 +1,20 @@
-サンプルプログラムを中間言語に変換し、実行します。
-中間言語への変換はmrbcコマンドを使用します。
-mrbcコマンドの出力形式は２種類あります。
- △バイナリー形式（デフォルト）
-   $ mrbc test.rb
+##### バイトコードへのコンパイル
+サンプルプログラムをバイトコードに変換し、実行します。  
+バイトコードへの変換はmrbcコマンドを使用します。  
+mrbcコマンドの出力形式は２種類あります。  
+ △ バイナリー形式（デフォルト）
 
- ○配列Cプログラム形式
-   $ mrbc -Bfoo -o test_mrb.h test.rb
+    $ mrbc test.rb
+
+ ○ 配列Cプログラム形式
+
+    $ mrbc -Bfoo -o test_mrb.h test.rb
 
 main.c で上記の中間ファイルをinputして実行します。
 
-------------------------------
+-----------------------------
+・main.c
+```c
 #include "mruby.h"
 #include "mruby/compile.h"
 #include "mruby/irep.h"
@@ -25,7 +30,13 @@ int main() {
 
   mrb_close(mrb);
 }
+```
 ------------------------------
 
-main.cのビルド
- $ gcc -Wall -g -o test main.c -Iinclude lib/libmruby.a -lm
+##### main.cのビルド
+
+    $ gcc -Wall -g -o test main.c -Iinclude lib/libmruby.a -lm
+
+##### プログラム実行
+
+    $ ./test
