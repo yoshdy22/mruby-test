@@ -41,3 +41,7 @@ int main() {
 ### プログラム実行
 
     $ ./test
+
+または
+
+    $ mruby -b test.mrb
