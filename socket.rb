@@ -1,8 +1,7 @@
 server = TCPServer.open(20000)
 socket = server.accept
 
-line = socket.recv
-#line = socket.gets
+line = socket.gets
 
 p line
 

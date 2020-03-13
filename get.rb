@@ -1,3 +1,0 @@
-c = gets
-
-#puts c
